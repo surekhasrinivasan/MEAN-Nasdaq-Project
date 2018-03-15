@@ -1,0 +1,29 @@
+/*Sticky footer styles*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /*Margin bottom by footer height*/ 
+    margin-top: 60px;
+    margin-bottom: 90px;
+}
+.container {
+    padding-top: 0 0 0 0;
+}
+.padded {
+    padding-top: 30px;
+}
+/*.img {*/
+/*    background-size: 25% 10%;*/
+/*}*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    /*Set the fixed height of the footer here */
+    height: 60px;
+    background-color: white;
+    padding-top: 10px;
+}
