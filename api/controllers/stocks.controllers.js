@@ -1,4 +1,5 @@
 var dbconn = require('../data/dbconnection.js');
+var ObjectId = require('mongodb').ObjectId;
 var stockData = require('../data/stock-data.json');
 
 module.exports.stocksGetAll = function(req, res){
@@ -17,6 +18,8 @@ module.exports.stocksGetAll = function(req, res){
     }    
     collection
         .find()
+        .skip(offset)
+        .limit(count)
         .toArray(function(err, docs){
             console.log('Found stocks', docs);
             res
@@ -24,16 +27,21 @@ module.exports.stocksGetAll = function(req, res){
                 .json(docs);
         });
 };    
-//     console.log('db', db);
-    
-//     console.log("GET the stocks");
-//     console.log(req.query);
-    
 
+module.exports.stocksGetOne = function(req, res){
+    var db = dbconn.get();
+    var collection = db.collection('stocks');
     
-//     var returnData = stockData.slice(offset, offset + count);
-
-//     res
-//         .status(200)
-//         .json(returnData);
-// };
+    var stockId = req.params.stockId;
+    console.log("GET stockId", stockId);
+    
+    collection
+        .findOne({
+            _id : ObjectId(stockId)
+        }, function(err, doc){
+            res
+                .status(200)
+                .json( doc );
+        });
+}
+    
