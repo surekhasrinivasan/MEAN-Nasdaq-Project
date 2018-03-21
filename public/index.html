@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="meanhotel" class="ng-scope">
+<html ng-app="meannasdaq" class="ng-scope">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +11,21 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 </head>
 <body>
-    <h1>MEAN Nasdaq homepage</h1>
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted text-center">
-                <a href="https://www.nasdaq.com/" target="_blank">
-                    <img src="images/nasdaq-logo.png" height = "50" width = "200" alt="Nasdaq Online"/></a>
-                    <br>
-                    <small>Nasdaq - Ignite your future &copy 2018</small>
-            </p>
-        </div>
-    </footer>
+    <div ng-view></div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted text-center">
+                    <a href="https://www.nasdaq.com/" target="_blank">
+                        <img src="images/nasdaq-logo.png" height = "50" width = "200" alt="Nasdaq Online"/></a>
+                        <br>
+                        <small>Nasdaq - Ignite your future &copy 2018</small>
+                </p>
+            </div>
+        </footer>
     <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="angular-app/app.js"></script>
+    <script src="angular-app/stock-list/stock-list-controller.js"></script>
 </body>
 </html>

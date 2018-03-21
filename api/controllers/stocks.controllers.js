@@ -5,7 +5,7 @@ module.exports.stocksGetAll = function(req, res){
     
     var offset = 0;
     var count = 5;
-    var maxCount = 10;
+    var maxCount = 15;
     
     if(req.query && req.query.offset) {
         offset = parseInt(req.query.offset, 10);
