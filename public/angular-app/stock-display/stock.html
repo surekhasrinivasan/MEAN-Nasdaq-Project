@@ -1,0 +1,21 @@
+<style>
+table, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  padding: 5px;
+}
+</style>
+<h2 align="center"> Stock details of {{ vm.stock.Name }}</h2>
+<hr>
+<table align="center">
+    <tr>
+        <td>Industry</td>
+        <td>Market Cap</td>
+        <td>Last Sale</td>
+    </tr>
+    <tr>
+        <td>{{ vm.stock.Industry }}</td>
+        <td>{{ vm.stock.MarketCap }}</td>
+        <td>{{ vm.stock.LastSale }}</td>
+    </tr>
+</table>
