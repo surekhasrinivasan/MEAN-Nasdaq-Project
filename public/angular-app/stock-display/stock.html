@@ -5,17 +5,19 @@ table, td {
   padding: 5px;
 }
 </style>
-<h2 align="center"> Stock details of {{ vm.stock.Name }}</h2>
+<h2 align="center"> Stock Data of {{ vm.stock.Name }}</h2>
 <hr>
 <table align="center">
     <tr>
         <td>Industry</td>
         <td>Market Cap</td>
         <td>Last Sale</td>
+        <td>URL</td>
     </tr>
     <tr>
         <td>{{ vm.stock.Industry }}</td>
-        <td>{{ vm.stock.MarketCap }}</td>
-        <td>{{ vm.stock.LastSale }}</td>
+        <td>{{ vm.stock.MarketCap | currency }}</td>
+        <td>{{ vm.stock.LastSale | currency }}</td>
+        <td><a ng-href="#">{{ vm.stock["Summary Quote"] }}</a></td>
     </tr>
 </table>
