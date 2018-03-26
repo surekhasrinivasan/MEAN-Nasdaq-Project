@@ -1,6 +1,5 @@
-/*global angular StocksController StockController*/
-angular.module('meannasdaq', ['ngRoute'])
-.config(config);
+/*global angular StocksController StockController RegisterController*/
+angular.module('meannasdaq', ['ngRoute']).config(config);
 
 function config($routeProvider) {
     $routeProvider
@@ -13,5 +12,10 @@ function config($routeProvider) {
             templateUrl : 'angular-app/stock-display/stock.html',
             controller : StockController,
             controllerAs:'vm'
+        })
+        .when('/register', {
+            templateUrl : 'angular-app/register/register.html',
+            controller : RegisterController, 
+            controllerAs : 'vm'
         });
 }
