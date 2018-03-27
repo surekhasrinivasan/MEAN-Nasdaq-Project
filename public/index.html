@@ -7,11 +7,14 @@
     <title>MEAN Nasdaq</title>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/custom.css" rel="stylesheet"/>
-    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 </head>
 <body>
-    <div ng-view></div>
+    <div><mn-navigation></mn-navigation></div>
+    <div class="container">
+        <div ng-view></div>
+    </div>
         <footer class="footer">
             <div class="container">
                 <p class="text-muted text-center">
@@ -31,6 +34,9 @@
     <script src="angular-app/stock-display/stock-display-controller.js"></script>
     <script src="angular-app/stock-data-factory/stock-data-factory.js"></script>
     <script src="angular-app/register/register-controller.js"></script>
-
+    <script src="angular-app/navigation-directive/navigation-directive.js"></script>
+    <script src="angular-app/login/login-controller.js"></script>
+    <script src="angular-app/auth/auth-factory.js"></script>
+    <script src="angular-app/auth/auth-interceptor.js"></script>
 </body>
 </html>

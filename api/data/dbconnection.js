@@ -34,5 +34,5 @@ process.once('SIGUSR2', function(){
 });
 
 //BRING IN SCHEMAS AND MODELS
-require('./stocks.model.js');
-require('./users.model.js');
+require('./stocks.model');
+require('./users.model');

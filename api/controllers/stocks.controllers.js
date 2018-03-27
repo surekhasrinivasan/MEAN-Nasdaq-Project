@@ -3,6 +3,9 @@ var Stock = mongoose.model('Stock');
 
 module.exports.stocksGetAll = function(req, res){
     
+    console.log('Required by: ' + req.user);
+    console.log('Get the stocks');
+    
     var offset = 0;
     var count = 5;
     var maxCount = 15;

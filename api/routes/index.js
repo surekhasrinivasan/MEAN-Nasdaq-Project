@@ -11,7 +11,7 @@ router
 router
     .route('/stocks/:stockId')
     .get(ctrlStocks.stocksGetOne);
-
+    
 //Authentication routes
 router
     .route('/users/register')

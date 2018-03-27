@@ -4,7 +4,7 @@ angular.module('meannasdaq').factory('stockDataFactory', stockDataFactory);
 function stockDataFactory($http) {
     return {
         stockList : stockList,
-        stockDisplay : stockDisplay
+        stockDisplay : stockDisplay,
     };
     
     function stockList() {

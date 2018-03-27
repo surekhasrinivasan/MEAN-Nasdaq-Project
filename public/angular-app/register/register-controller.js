@@ -9,6 +9,7 @@ function RegisterController($http) {
             username: vm.username,
             password: vm.password
         };
+        
         if (!vm.username || !vm.password) {
             vm.error = 'Please add a username and a password.';
         } else {
