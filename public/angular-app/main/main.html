@@ -1,1 +1,17 @@
-<h1>Welcome to MEAN Nasdaq Webpage!</h1>
+<div align="center">
+		<h1>{{ vm.title }}</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			<img alt="Nasdaq" height="300" src="images/nasdaq-image.jpg" width="300"><br>
+			<small>Click on Companies to get Stocks Information</small>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-5">
+			<br><br>
+			<h4>Search Stock by Symbol</h4>
+			<form id="vm.search" name="vm.search">
+				<input name="symbol" placeholder="Enter stock symbol here" required="" type="text"> <button class="btn" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
