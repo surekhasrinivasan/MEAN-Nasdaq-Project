@@ -11,6 +11,10 @@ router
 router
     .route('/stocks/:stockId')
     .get(ctrlStocks.stocksGetOne);
+
+router
+    .route('/search/:symbol')
+    .get(ctrlStocks.stocksGetSymbol);
     
 //Authentication routes
 router

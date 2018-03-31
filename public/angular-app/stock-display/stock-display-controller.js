@@ -6,7 +6,7 @@ function StockController(stockDataFactory, $routeParams) {
     var id = $routeParams.id;
     
     stockDataFactory.stockDisplay(id).then(function(response){
-        //console.log(response.data);
+        console.log(response.data);
         vm.stock = response.data;
     }); 
 }

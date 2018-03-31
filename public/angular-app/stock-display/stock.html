@@ -1,23 +1,33 @@
-<style>
-table, td {
-  border: 1px solid white;
-  border-collapse: collapse;
-  padding: 5px;
-}
-</style>
-<h2 align="center"> Stock Data of {{ vm.stock.Name }}</h2>
-<hr>
-<table align="center">
-    <tr>
-        <td>Industry</td>
-        <td>Market Cap</td>
-        <td>Last Sale</td>
-        <td>URL</td>
+<div class="container" style="padding-top:10px">
+<h2 align="center"> Stock Details of : {{ vm.stock.Name }}</h2>
+<div>
+<table class="table table-striped">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">Industry</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Market Cap</th>
+      <th scope="col">Last Sale</th>
+      <th scope="col">IPO Year</th>
     </tr>
+  </thead>
+  <tbody> 
     <tr>
-        <td>{{ vm.stock.Industry }}</td>
-        <td>{{ vm.stock.MarketCap | currency }}</td>
-        <td>{{ vm.stock.LastSale | currency }}</td>
-        <td><a ng-href="#">{{ vm.stock["Summary Quote"] }}</a></td>
+      <td>{{ vm.stock.Industry }}</td>
+      <td>{{ vm.stock.Sector }}</td>
+      <td>{{ vm.stock.Symbol }}</td>
+      <td>{{ vm.stock.MarketCap | currency }}</a></td>
+      <td>{{ vm.stock.LastSale | currency }}</td>
+      <td>{{ vm.stock.IPOyear }}</td>
     </tr>
-</table>
+  </tbody>
+</table> 
+</div>
+<div ng-controller="LoginController as vm">
+  <p ng-if="!vm.isLoggedIn()">Please login to get Link for Stock Quote and Summary Data</p>
+</div>  
+<div ng-controller="LoginController as vm">
+  <p ng-if="vm.isLoggedIn()">Open the link in a new tab to get Quote and Summary Data: <a ng-href="https://www.nasdaq.com/symbol/stocksymbol">https://www.nasdaq.com/symbol/stocksymbol</a>
+  <br><br>Note: In place of stocksymbol please add Symbol of the stock.</p>
+</div> 

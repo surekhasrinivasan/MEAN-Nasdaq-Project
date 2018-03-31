@@ -1,0 +1,35 @@
+<div class="container" style="padding-top:10px">
+    <form class="form-inline my-2 my-sm-0" name="search" ng-submit="vm.search()" style="margin:auto;max-width:300px">
+        <input type="text" name="symbol" placeholder="Search by Stock Symbol" required ng-minlength="2" ng-model="vm.Symbol" autocapitalize="true"/>
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <div>
+        <small>Search Results:</small>
+        <div ng-if="vm.error">
+            <p>{{ vm.error }}</p>
+        </div>
+        <h3>Company Name : {{vm.symbol.Name}}</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Industry</th>
+                    <th>Sector</th>
+                    <th>Last Sale</th>
+                    <th>Market Cap</th>
+                    <th>IPO Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{vm.symbol.Symbol}}</td>
+                    <td>{{vm.symbol.Industry}}</td>
+                    <td>{{vm.symbol.Sector}}</td>
+                    <td>{{vm.symbol.LastSale | currency}}</td>
+                    <td>{{vm.symbol.MarketCap | currency}}</td>
+                    <td>{{vm.symbol.IPOyear}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>    

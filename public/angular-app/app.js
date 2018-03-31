@@ -1,5 +1,5 @@
-/*global angular StocksController StockController RegisterController SymbolController*/
-angular.module('meannasdaq', ['ngRoute', 'angular-jwt']).config(config).run(run);
+/*global angular StocksController StockController RegisterController MainPageController*/
+angular.module('meannasdaq', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
@@ -7,9 +7,11 @@ function config($httpProvider, $routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'angular-app/main/main.html',
+            controller : MainPageController,
+            controllerAs:'vm',
             access: {
                 restricted: false
-            }
+        }
         })
         .when('/stocks', {
             templateUrl : 'angular-app/stock-list/stocks.html',
@@ -27,6 +29,14 @@ function config($httpProvider, $routeProvider) {
                 restricted: false
         }
         })
+        .when('/search', {
+		templateUrl: 'angular-app/search/search.html',
+		controller: StocksController,
+		controllerAs: 'vm',
+		access: {
+			restricted: false
+		}
+	    })
         .when('/register', {
             templateUrl : 'angular-app/register/register.html',
             controller : RegisterController, 

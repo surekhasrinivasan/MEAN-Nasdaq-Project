@@ -3,42 +3,9 @@ var Stock = mongoose.model('Stock');
 
 module.exports.stocksGetAll = function(req, res){
     
-    console.log('Required by: ' + req.user);
     console.log('Get the stocks');
-    
-    var offset = 0;
-    var count = 5;
-    var maxCount = 15;
-    
-    if(req.query && req.query.offset) {
-        offset = parseInt(req.query.offset, 10);
-    }
-    
-    if(req.query && req.query.count) {
-        count = parseInt(req.query.count, 10);
-    }    
-    
-    if(isNaN(offset) || isNaN(count)) {
-        res
-            .status(400)
-            .json({
-                "Message" : "If supplied in querystring offset and count should be numbers"
-            });
-            return;
-    }
-    
-    if(count > maxCount) {
-        res
-            .status(400)
-            .json({
-                "message" : "Count limit of " + maxCount + " exceeded"
-            });
-            return;
-    }
     Stock
         .find()
-        .skip(offset)
-        .limit(count)
         .exec(function(err, stocks){
             if(err){
                 console.log("Error finding stocks");
@@ -79,4 +46,32 @@ module.exports.stocksGetOne = function(req, res){
                 .status(response.status)
                 .json( response.message);
         });
+};
+
+module.exports.stocksGetSymbol = function(req, res){
+        
+        var symbol = req.params.symbol;
+        symbol = symbol.toUpperCase();
+        console.log("Getting stock: ", symbol);
+    
+    Stock
+        .findOne({
+            Symbol : symbol 
+        }, function(err, doc){
+            if(err){
+                console.log("Error finding stock");
+                res
+                    .status(500)
+                    .json({"Error finding stock" : err});
+            } else if(!doc) {
+                console.log("No stock available for symbol " + symbol);
+                res
+                    .status(400)
+                    .json({"error":"No stock available for symbol " + symbol + "."});
+            } else {
+            res
+                .status(200)
+                .json(doc); 
+            }
+         });
 };

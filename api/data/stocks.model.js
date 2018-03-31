@@ -9,9 +9,18 @@ var stockSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    sector : String,
-    marketCap : Number,
-    ipoYear : Number
+    sector : {
+        type : String
+    },
+    marketCap : {
+        type : Number
+    },
+    lastSale : {
+        type : Number
+    },
+    industry : {
+        type : String 
+    }
 });
 
 mongoose.model('Stock', stockSchema);
